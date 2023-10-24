@@ -1,7 +1,12 @@
+import React, { ReactElement } from "react";
 import style from "./Button.module.scss";
 
-const Button = () => {
-  return <button className={style.botao}>Iniciar</button>;
+interface ButtonProps {
+  children: ReactElement | string;
+}
+
+const Button = (props: ButtonProps) => {
+  return <button className={style.botao}>{props.children}</button>;
 };
 
 export default Button;
