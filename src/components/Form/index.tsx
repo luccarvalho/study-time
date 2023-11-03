@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import Button from "../Button";
 import style from "./Form.module.scss";
+import { TasksProps } from "../../types/tarefas";
 
-const Form = () => {
+const Form = ({
+  setTarefas,
+}: {
+  setTarefas: React.Dispatch<React.SetStateAction<TasksProps[]>>;
+}) => {
   const [estudos, setEstudos] = useState({
     tarefa: "",
     tempo: "00:00:00",
@@ -10,7 +15,7 @@ const Form = () => {
 
   const adicionarEstudo = (evento: React.FormEvent) => {
     evento.preventDefault();
-    console.log("estudos: ", estudos);
+    setTarefas((tarefasAtuais) => [...tarefasAtuais, { ...estudos }]);
   };
 
   return (
