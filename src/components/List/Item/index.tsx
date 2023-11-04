@@ -1,12 +1,8 @@
 import React from "react";
 import style from "../List.module.scss";
+import { TasksProps } from "../../../types/tarefas";
 
-interface ItemProps {
-  tarefa: string;
-  tempo: string;
-}
-
-const Item = ({ tarefa, tempo }: ItemProps) => {
+const Item = ({ tarefa, tempo, selecionado, completado, id }: TasksProps) => {
   return (
     <li className={style.item}>
       <h3>{tarefa}</h3>

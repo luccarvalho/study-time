@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button";
 import style from "./Form.module.scss";
 import { TasksProps } from "../../types/tarefas";
+import { v4 as uuidv4 } from "uuid";
 
 const Form = ({
   setTarefas,
@@ -15,7 +16,11 @@ const Form = ({
 
   const adicionarEstudo = (evento: React.FormEvent) => {
     evento.preventDefault();
-    setTarefas((tarefasAtuais) => [...tarefasAtuais, { ...estudos }]);
+    setTarefas((tarefasAtuais) => [
+      ...tarefasAtuais,
+      { ...estudos, selecionado: false, completado: false, id: uuidv4() },
+    ]);
+    setEstudos({ tarefa: "", tempo: "00:00:00" });
   };
 
   return (
