@@ -2,9 +2,31 @@ import React from "react";
 import style from "../List.module.scss";
 import { TasksProps } from "../../../types/tarefas";
 
-const Item = ({ tarefa, tempo, selecionado, completado, id }: TasksProps) => {
+interface ItemProps extends TasksProps {
+  selecionaTarefa: (tarefaSelecionada: TasksProps) => void;
+}
+
+const Item = ({
+  tarefa,
+  tempo,
+  selecionado,
+  completado,
+  id,
+  selecionaTarefa,
+}: ItemProps) => {
   return (
-    <li className={style.item}>
+    <li
+      className={style.item}
+      onClick={() =>
+        selecionaTarefa({
+          tarefa,
+          tempo,
+          selecionado,
+          completado,
+          id,
+        })
+      }
+    >
       <h3>{tarefa}</h3>
       <span>{tempo}</span>
     </li>

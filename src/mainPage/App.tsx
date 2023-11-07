@@ -7,11 +7,16 @@ import { TasksProps } from "../types/tarefas";
 
 const App = () => {
   const [tarefas, setTarefas] = useState<TasksProps[]>([]);
+  const [selecionado, setSelecionado] = useState<TasksProps>();
+
+  function selecionaTarefa(tarefaSelecionada: TasksProps) {
+    setSelecionado(tarefaSelecionada);
+  }
 
   return (
     <div className={style.AppStyle}>
       <Form setTarefas={setTarefas} />
-      <List tarefas={tarefas} />
+      <List tarefas={tarefas} selecionaTarefa={selecionaTarefa} />
       <Timer />
     </div>
   );
