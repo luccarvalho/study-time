@@ -16,7 +16,7 @@ const Item = ({
 }: ItemProps) => {
   return (
     <li
-      className={style.item}
+      className={`${style.item} ${selecionado ? style.itemSelecionado : ""}`}
       onClick={() =>
         selecionaTarefa({
           tarefa,

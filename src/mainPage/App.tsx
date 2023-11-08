@@ -11,6 +11,12 @@ const App = () => {
 
   function selecionaTarefa(tarefaSelecionada: TasksProps) {
     setSelecionado(tarefaSelecionada);
+    setTarefas((tarefasAnteriores) =>
+      tarefasAnteriores.map((tarefa) => ({
+        ...tarefa,
+        selecionado: tarefa.id === tarefaSelecionada.id ? true : false,
+      }))
+    );
   }
 
   return (
