@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../Button";
 import Clock from "./Clock";
 import style from "./Timer.module.scss";
-import { tempoParaSegundos } from "../../common/utils/date";
+import { tempoParaSegundos } from "../../common/utils/time";
 
 const Timer = () => {
   console.log("conversão: ", tempoParaSegundos("01:01:01"));
