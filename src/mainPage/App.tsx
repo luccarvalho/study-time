@@ -23,7 +23,7 @@ const App = () => {
     <div className={style.AppStyle}>
       <Form setTarefas={setTarefas} />
       <List tarefas={tarefas} selecionaTarefa={selecionaTarefa} />
-      <Timer />
+      <Timer selecionado={selecionado} />
     </div>
   );
 };

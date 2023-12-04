@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Button";
 import Clock from "./Clock";
 import style from "./Timer.module.scss";
 import { tempoParaSegundos } from "../../common/utils/time";
+import { TasksProps } from "../../types/tarefas";
 
-const Timer = () => {
-  console.log("conversão: ", tempoParaSegundos("01:01:01"));
+interface TimerProps {
+  selecionado: TasksProps | undefined;
+}
+
+const Timer = ({ selecionado }: TimerProps) => {
+  const [tempo, setTempo] = useState<number>();
+
+  if (selecionado?.tempo) {
+    setTempo(tempoParaSegundos(selecionado.tempo));
+  }
+
   return (
     <div className={style.cronometro}>
       <p className={style.titulo}>Escolha um card e inicie o cronômetro</p>
+      Tempo: {tempo}
       <div className={style.relogioWrapper}>
         <Clock />
       </div>
