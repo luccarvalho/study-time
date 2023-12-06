@@ -9,7 +9,7 @@ const App = () => {
   const [tarefas, setTarefas] = useState<TasksProps[]>([]);
   const [selecionado, setSelecionado] = useState<TasksProps>();
 
-  function selecionaTarefa(tarefaSelecionada: TasksProps) {
+  const selecionaTarefa = (tarefaSelecionada: TasksProps) => {
     setSelecionado(tarefaSelecionada);
     setTarefas((tarefasAnteriores) =>
       tarefasAnteriores.map((tarefa) => ({
@@ -17,13 +17,31 @@ const App = () => {
         selecionado: tarefa.id === tarefaSelecionada.id ? true : false,
       }))
     );
-  }
+  };
+
+  const finalizarTarefa = () => {
+    if (selecionado) {
+      setSelecionado(undefined);
+      setTarefas((tarefasAnteriores) =>
+        tarefasAnteriores.map((tarefa) => {
+          if (tarefa.id === selecionado.id) {
+            return {
+              ...tarefa,
+              selecionado: false,
+              completado: true,
+            };
+          }
+          return tarefa;
+        })
+      );
+    }
+  };
 
   return (
     <div className={style.AppStyle}>
       <Form setTarefas={setTarefas} />
       <List tarefas={tarefas} selecionaTarefa={selecionaTarefa} />
-      <Timer selecionado={selecionado} />
+      <Timer selecionado={selecionado} finalizarTarefa={finalizarTarefa} />
     </div>
   );
 };
