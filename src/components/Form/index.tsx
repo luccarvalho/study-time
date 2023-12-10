@@ -4,11 +4,10 @@ import style from "./Form.module.scss";
 import { TasksProps } from "../../types/tarefas";
 import { v4 as uuidv4 } from "uuid";
 
-const Form = ({
-  setTarefas,
-}: {
+interface FormProps {
   setTarefas: React.Dispatch<React.SetStateAction<TasksProps[]>>;
-}) => {
+}
+const Form = ({ setTarefas }: FormProps) => {
   const [estudos, setEstudos] = useState({
     tarefa: "",
     tempo: "00:00:00",
