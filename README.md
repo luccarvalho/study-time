@@ -1,7 +1,7 @@
 <<h1 align="center">Study Time</h1>
 
 <div align="center">
-  <img width="600" src="" alt="">
+  <img width="600" src="./src/assets/img/study-time_to_readme.png" alt="Imagem de apresentação do projeto">
 </div>
 
 ## Descrição e objetivo do projeto
