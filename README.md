@@ -24,4 +24,4 @@ Aplicação desenvolvida utilizando os principais conceitos e boas práticas do 
 
 ## :link: Acesso ao projeto
 
-Você pode acessar o deploy do projeto na Vercel clicando [aqui]().
+Você pode acessar o deploy do projeto na Vercel clicando [aqui](https://study-time-silk.vercel.app/).
