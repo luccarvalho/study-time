@@ -19,7 +19,7 @@ Aplicação desenvolvida utilizando os principais conceitos e boas práticas do 
 ## :heavy_check_mark: Tecnologias utilizadas
 
 - `React`
-- `JavaScript`
+- `TypeScript`
 - `SCSS`
 
 ## :link: Acesso ao projeto
